@@ -87,8 +87,12 @@ RUN npm install -g npm@latest && \
     else \
       npm install -g openclaw; \
     fi && \
+    OPENCLAW_PATH=$(npm root -g)/openclaw/bin/openclaw.js && \
+    echo '#!/usr/bin/env bash\nnode '"$OPENCLAW_PATH"' "$@"' > /usr/local/bin/openclaw && \
+    chmod +x /usr/local/bin/openclaw && \
     which openclaw && \
     openclaw --version
+RUN ln -sf /usr/local/bin/openclaw /data/.bun/bin/openclaw || true
 
 # Install uv explicitly
 RUN curl -LsSf https://astral.sh/uv/install.sh | sh
