@@ -12,6 +12,8 @@ services:
       args:
         - OPENCLAW_BETA=${OPENCLAW_BETA:-false}
     restart: on-failure:10
+    expose:
+      - "18789"
     ulimits:
       nofile:
         soft: 65535
