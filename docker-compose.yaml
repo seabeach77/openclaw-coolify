@@ -12,8 +12,8 @@ services:
       args:
         - OPENCLAW_BETA=${OPENCLAW_BETA:-false}
     restart: on-failure:10
-    expose:
-      - "18789"
+    ports:
+      - "18789:18789"
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.openclaw.rule=Host(`openclaw.seabeach77.com`)"
