@@ -18,7 +18,7 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.openclaw.rule=Host(`openclaw.seabeach77.com`)"
       - "traefik.http.routers.openclaw.entrypoints=websecure"
-      - "traefik.http.routers.openclaw.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.openclaw.tls=true"
       - "traefik.http.services.openclaw.loadbalancer.server.port=18789"
     ulimits:
       nofile:
